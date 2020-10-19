@@ -1,0 +1,14 @@
+# Header items
+menu:
+  主页: /
+  博客存档: /archives
+
+# Social Accounts
+avatar:
+  url:
+accounts:
+  github:
+  zhihu:
+  weibo:
+  lofter:
+  gitee:
