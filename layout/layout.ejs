@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<%- partial('_partial/head') %>
+<body>
+  <%- partial('_partial/header') %>
+  <%
+    var image = page.iamge, title = page.title;
+    if (!image)
+      for (let t in theme.menu)
+          if (theme.menu[t].url == '/' + page.path.slice(0, -10)) {
+            image = theme.menu[t].image;
+            if (!title) title = theme.menu[t].title;
+            break;
+        }
+  %> 
+  <div class="container">
+    <div class="page">
+      <% if (image) { %>
+        <img src="<%= image %>" rel="page image" class="page-image">
+      <% } %>
+      <div class="title-box<% if (!page.title) { %> not-post<% } %>">
+      <heading><%= title %></heading>
+        <% if (page.date) { %>
+        <div class="page-dates">
+          <div><%= config.author %>于<%= page.date.format(`${config.date_format} ${config.time_format}`) %>创建</div>
+          <div>最后修改于<%= page.updated.format(`${config.date_format} ${config.time_format}`) %></div>
+        </div>
+        <% } %>
+      </div>
+      <div class="content">
+        <%- body %>
+      </div>
+    </div>
+    <div class="widgets">
+      <% if (config.useTagCloud) { %>
+        <%- partial('_widgets/tagcloud.ejs') %>
+      <% } %>
+      <% if (config.useLive2d) { %>
+        <% partial('_widgets/live2d.ejs') %>
+      <% } %>
+    </div>
+  </div>
+  
+  <%- partial('_partial/footer') %>
+</body>
+</html>

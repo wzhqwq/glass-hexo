@@ -1,0 +1,12 @@
+<header>
+  <div class="nav">
+    <div class="nav-avatar">
+      <% if (theme.avatar) { %>
+        <img src="<%= theme.avatar %>"/>
+      <% } %>
+    </div>
+    <% for (let link_name in theme.menu) { %>
+      <a href="<%- url_for(theme.menu[link_name].url) %>" class="<%= theme.menu[link_name].url == '/' + path.slice(0,-10) ? 'link-active' : ''%>"><%= link_name %></a>
+    <% } %>
+  </div>
+</header>

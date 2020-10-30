@@ -1,0 +1,18 @@
+# Header items
+menu:
+  主页:
+    url: /
+    image: https://i.loli.net/2020/10/27/YKoBd2uCMcxp4ZE.jpg
+    title: 主页
+  博客存档:
+    url: /archives/
+    title: 所有博客
+avatar: /imgs/avatar.png
+
+# Social Accounts
+accounts:
+  github:
+  zhihu:
+  weibo:
+  lofter:
+  gitee:

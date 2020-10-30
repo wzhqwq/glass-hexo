@@ -1,3 +1,41 @@
 @import url(format.css);
 @import url(page.css);
 @import url(widgets.css);
+
+body {
+  margin: 0;
+  --bg-color: #FEFEFE;
+  --text-color: #111;
+  --text-2: #333;
+  --primary-color: #F5F5F5;
+  --secondary-color: #EAEAEA;
+  --fixed-color: #FFFA;
+  --main-0: #0666a7;
+  --main-1: #1ca3ff;
+  --main-2: #52baff;
+  --main-3: #90d3ff;
+  --main-4: #d0ecff;
+  --shadow-color: #1111;
+  --hover: .9;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --bg-color: #111;
+    --text-color: #EEE;
+    --text-2: #CCC;
+    --primary-color: #222;
+    --secondary-color: #333;
+    --fixed-color: #111A;
+    --main-0: #6cc4ff;
+    --main-1: #0082ff;
+    --main-2: #007fd4;
+    --main-3: #00569c;
+    --main-4: #003d61;
+    --shadow-color: #1111;
+    --hover: .9;
+  
+  }
+}

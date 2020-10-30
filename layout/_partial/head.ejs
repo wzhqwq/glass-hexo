@@ -1,0 +1,17 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% var title = page.title;
+    if (!title)
+      for (let t in theme.menu)
+        if (theme.menu[t].url == '/' + page.path.slice(0, -10)) {
+          title = t;
+          break;
+        }
+  %> 
+  <title><%= config.title %> - <%= title %></title>
+  <% if (theme.avatar) { %>
+    <link rel="icon" href="<%= theme.avatar %>">
+  <% } %>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
