@@ -5,8 +5,33 @@
         <img src="<%= theme.avatar %>"/>
       <% } %>
     </div>
-    <% for (let link_name in theme.menu) { %>
-      <a href="<%- url_for(theme.menu[link_name].url) %>" class="<%= theme.menu[link_name].url == '/' + path.slice(0,-10) ? 'link-active' : ''%>"><%= link_name %></a>
+    <button id="nav-collapse">
+      <div style="top: 10px;"></div>
+      <div style="top: 19px;"></div>
+      <div style="top: 28px;"></div>
+    </button>
+    <div class="nav-links" id="navbar-links">
+    <%for (let link_name in theme.menu) { %>
+      <div>
+        <a href="<%- url_for(theme.menu[link_name].url) %>" class="<%= theme.menu[link_name].url == base ? 'link-active' : ''%>"><%= link_name %></a>
+      <%if (theme.menu[link_name].url == '/archives/' && page.archive) {
+          var archive_info = 'var archive_info = { archive: true, ';
+          if (page.year) {
+            archive_info += `year: ${page.year}`;%>
+        <div class="nav-flex">
+          <div class="nav-select" style="--w: <%= page.month ? 118 : 64 %>px">
+            <select id="year-select"></select>
+          <%if (page.month) {
+              archive_info += `, month: ${page.month}`;%>
+            <select id="month-select"></select>
+          <%} %>
+          </div>
+        </div>
+        <%} %>
+          <%- '<script>' + archive_info + ' };</script>' %>
+      <%} %>
+      </div>
     <% } %>
+    </div>
   </div>
 </header>

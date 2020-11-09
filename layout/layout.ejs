@@ -2,16 +2,22 @@
 <html lang="<%= config.language %>">
 <%- partial('_partial/head') %>
 <body>
-  <%- partial('_partial/header') %>
+  <% var base = '/' + page.path.match(/[\S]*?[\/]*(?=[\/0-9]*index\.html)/); %>
+  <%- partial('_partial/header', {base: base}) %>
   <%
-    var image = page.iamge, title = page.title;
-    if (!image)
+    var image = page.image, title = page.title;
+    if (!image) {
       for (let t in theme.menu)
-          if (theme.menu[t].url == '/' + page.path.slice(0, -10)) {
-            image = theme.menu[t].image;
-            if (!title) title = theme.menu[t].title;
-            break;
+        if (theme.menu[t].url == base) {
+          image = theme.menu[t].image;
+          if (!title) title = theme.menu[t].title;
+          break;
         }
+    }
+    if (page.archive && page.year) {
+      title = `${page.year}年`;
+      if (page.month) title += `${page.month}月`;
+    }
   %> 
   <div class="container">
     <div class="page">

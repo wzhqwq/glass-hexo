@@ -9,6 +9,7 @@ body {
   --text-2: #333;
   --primary-color: #F5F5F5;
   --secondary-color: #EAEAEA;
+  --secondary-color-t: #EAEAEA88;
   --fixed-color: #FFFA;
   --main-0: #0666a7;
   --main-1: #1ca3ff;
@@ -28,14 +29,14 @@ body {
     --text-2: #CCC;
     --primary-color: #222;
     --secondary-color: #333;
-    --fixed-color: #111A;
+    --secondary-color-t: #3338;
+    --fixed-color: #111B;
     --main-0: #6cc4ff;
-    --main-1: #0082ff;
+    --main-1: #168bff;
     --main-2: #007fd4;
     --main-3: #00569c;
-    --main-4: #003d61;
+    --main-4: #084084;
     --shadow-color: #1111;
     --hover: .9;
-  
   }
 }

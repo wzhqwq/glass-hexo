@@ -9,6 +9,13 @@ menu:
     title: 所有博客
 avatar: /imgs/avatar.png
 
+archives:
+  seasonImage:
+    spring: 
+    summer: 
+    autumn: 
+    winter: 
+
 # Social Accounts
 accounts:
   github:

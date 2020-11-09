@@ -1,1 +1,13 @@
-hehe
+<div id="inner-nav" class="nav-links"></div>
+<% for (let post of page.posts.data) { %>
+  <div class="post-block">
+    <div background="<%= post.image %>" class="post-image"></div>
+    <div class="post-text">
+      <div class="post-title"><a href="<%= url_for(post.path) %>"><%= post.title %></a></div>
+      <div class="post-brief"><%= post.excerpt %></div>
+      <div class="post-time">
+        <div class="post-time-block"><%= post.date.format(`${config.date_format}`) %></div>
+      </div>
+    </div>
+  </div>
+<% } %>
