@@ -51,7 +51,7 @@ window.addEventListener('load', () => {
   }
   // posts support
   var post_image_not_loaded = true;
-  if (document.body.clientWidth > 400) {
+  if (document.body.clientWidth > 500) {
     post_image_not_loaded = false;
     Array.prototype.forEach.call(document.getElementsByClassName('post-image'), el => {
       el.style.backgroundImage = `url('${el.getAttribute('background')}')`;
@@ -76,9 +76,12 @@ window.addEventListener('load', () => {
         coll.className = '';
       }
     }; // 关掉，关掉，一定要关掉！
-    $(document.body).click(close);
+    $(document.body).click(e => {
+      if (e.target.id == 'year-select' || e.target.id == 'month-select') return;
+      close();
+    });
     window.addEventListener('resize', () => {
-      if (document.body.clientWidth > 400) {
+      if (document.body.clientWidth > 500) {
         close();
         if (post_image_not_loaded) {
           post_image_not_loaded = false;
