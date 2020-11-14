@@ -16,6 +16,11 @@ body {
   --main-2: #52baff;
   --main-3: #90d3ff;
   --main-4: #d0ecff;
+  --vice-0: #355c21;
+  --vice-1: #6f8237;
+  --vice-2: #90a633;
+  --vice-3: #acc25e;
+  --vice-4: #d0eda3;
   --shadow-color: #1111;
   --hover: .9;
   background-color: var(--bg-color);
@@ -32,10 +37,15 @@ body {
     --secondary-color-t: #3338;
     --fixed-color: #111B;
     --main-0: #6cc4ff;
-    --main-1: #168bff;
-    --main-2: #007fd4;
+    --main-1: #1e7edc;
+    --main-2: #0e6eaf;
     --main-3: #00569c;
     --main-4: #084084;
+    --vice-0: #b2da74;
+    --vice-1: #85a720;
+    --vice-2: #778a23;
+    --vice-3: #57651e;
+    --vice-4: #3a4a1a;
     --shadow-color: #05050511;
     --hover: .9;
   }

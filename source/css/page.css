@@ -165,6 +165,7 @@ header {
 .page-image {
   width: 100%;
   -webkit-mask-image: linear-gradient(to top, #FFF1, #FFF 50px);
+  mask-image: linear-gradient(to top, #FFF1, #FFF 50px);
   margin-bottom: -50px;
   border-radius: 20px 20px 0 0;
 }
@@ -226,18 +227,37 @@ heading {
   margin-bottom: 10px;
   height: 160px;
 }
-.post-image {
+.post-image,
+.post-default {
   width: 30%;
   height: 100%;
   border-radius: 8px;
+  margin-right: 5px;
+  box-shadow: 0 0 4px var(--shadow-color);
+}
+.post-image {
   background-size: cover;
   background-position: center;
+}
+.post-default {
+  background-image: linear-gradient(to top right, var(--vice-3), var(--vice-4) 100%);
+  position: relative;
+}
+.post-default::after {
+  content: "博客";
+  display: block;
+  position: absolute;
+  font-size: 50px;
+  color: var(--vice-2);
+  width: 100%;
+  text-align: center;
+  line-height: 160px;
 }
 .post-text {
   width: 70%;
   display: flex;
   flex-direction: column;
-  padding: 0 10px;
+  padding: 0 15px;
 }
 .post-title {
   font-weight: bold;
@@ -257,6 +277,9 @@ heading {
   flex-grow: 1;
   overflow: hidden;
   color: var(--text-2);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%,white 30%);
+  mask-image: linear-gradient(to top, transparent 0%,white 30%);
+  margin-bottom: 5px;
 }
 .post-time {
   height: 0;
@@ -342,6 +365,10 @@ heading {
     height: 110px;
     margin-bottom: 5px;
   }
+  .post-default::after {
+    line-height: 110px;
+    font-size: 32px;
+  }
   .post-title {
     margin: 5px;
   }
@@ -391,11 +418,22 @@ heading {
   .not-post {
     width: 50%;
   }
-  .post-image {
+  .post-image,
+  .post-default {
     background-image: none;
     width: 0px;
   }
+  .post-default::after {
+    display: none;
+  }
   .post-text {
     width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-image,
+  .page-image {
+    filter: brightness(.8);
   }
 }

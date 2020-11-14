@@ -7,9 +7,48 @@
 <h1>Hello, world!</h1>
 <h1>Hello, world!</h1>
 <h1>Hello, world!</h1>
-<h1>Hello, world!</h1>
-<h1>Hello, world!</h1>
-<h1>Hello, world!</h1>
-<h1>Hello, world!</h1>
-<h1>Hello, world!</h1>
-<h1>Hello, world!</h1>
+<style>
+  .color-sequence {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    margin: 5px auto;
+    height: 40px;
+    border: 5px var(--secondary-color) solid;
+  }
+  .color-sequence > div {
+    width: 25%;
+    height: 40px;
+    line-height: 40px;
+    color: var(--text-color);
+    text-align: center;
+    font-size: 26px;
+  }
+  .color-sequence > div:nth-child(1) {
+    border-radius: 10px 0 0 10px;
+  }
+  .color-sequence > div:nth-child(5) {
+    border-radius: 0 10px 10px 0;
+  }
+  .color-sequence > div:nth-child(2) {
+    border-radius: 10px;
+    transform: scale(1.2);
+  }
+</style>
+<h3>主色</h3>
+<div class="color-sequence">
+  <div style="background-color: var(--main-0);">0</div>
+  <div style="background-color: var(--main-1);">1</div>
+  <div style="background-color: var(--main-2);">2</div>
+  <div style="background-color: var(--main-3);">3</div>
+  <div style="background-color: var(--main-4);">4</div>
+</div>
+<h3>副色</h3>
+<div class="color-sequence">
+  <div style="background-color: var(--vice-0);">0</div>
+  <div style="background-color: var(--vice-1);">1</div>
+  <div style="background-color: var(--vice-2);">2</div>
+  <div style="background-color: var(--vice-3);">3</div>
+  <div style="background-color: var(--vice-4);">4</div>
+</div>

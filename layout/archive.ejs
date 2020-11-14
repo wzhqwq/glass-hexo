@@ -1,7 +1,7 @@
 <div id="inner-nav" class="nav-links"></div>
 <% for (let post of page.posts.data) { %>
   <div class="post-block">
-    <div background="<%= post.image %>" class="post-image"></div>
+  <div background="<%= post.image %>" class="<% if (post.image) { %>post-image<% } else { %>post-default<% } %>"></div>
     <div class="post-text">
       <div class="post-title"><a href="<%= url_for(post.path) %>"><%= post.title %></a></div>
       <div class="post-brief"><%= post.excerpt %></div>
