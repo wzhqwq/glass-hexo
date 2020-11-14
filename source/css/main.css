@@ -10,7 +10,7 @@ body {
   --primary-color: #F5F5F5;
   --secondary-color: #EAEAEA;
   --secondary-color-t: #EAEAEA88;
-  --fixed-color: #FFFA;
+  --fixed-color: #FEFEFEAA;
   --main-0: #0666a7;
   --main-1: #1ca3ff;
   --main-2: #52baff;
@@ -36,7 +36,16 @@ body {
     --main-2: #007fd4;
     --main-3: #00569c;
     --main-4: #084084;
-    --shadow-color: #1111;
+    --shadow-color: #05050511;
     --hover: .9;
   }
+}
+
+.low-perf {
+  --fixed-color: var(--bg-color);
+  --secondary-color-t: var(--secondary-color);
+}
+.low-perf * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
