@@ -1,13 +1,16 @@
 header {
-  background-color: var(--fixed-color);
+  background-color: var(--bg-color);
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 1px 3px #8883;
   z-index: 1;
+}
+.blur-enabled header {
+  background-color: var(--fixed-color);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 .nav {
   padding: 5px;
@@ -283,18 +286,23 @@ heading {
 }
 .post-time {
   height: 0;
+  position: relative;
 }
 .post-time-block {
   margin-top: -40px;
   line-height: 26px;
-  float: right;
-  background-color: var(--secondary-color-t);
+  position: absolute;
+  right: 0;
+  background-color: var(--secondary-color);
   color: var(--main-0);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   padding: 2px 10px;
   border-radius: 10px;
   box-shadow: 0 0 4px #0003;
+}
+.blur-enabled .post-time-block {
+  background-color: var(--secondary-color-t);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 @media screen and (max-width: 1100px) {

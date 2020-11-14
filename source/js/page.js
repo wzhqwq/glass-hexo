@@ -2,13 +2,16 @@ window.addEventListener('load', () => {
   // Visual effect reduction on experimental funcitons
   var OS = navigator.userAgent.match(/Windows NT|Sun OS|Mac OS X|Linux|FreeBSD|iPhone|Android/);
   var brsr = navigator.userAgent.match(/Firefox|Opera|Edge|Chrome|Safari/);
-  if (
+  var crVer = parseInt((navigator.userAgent.match(/(?<=Chrome\/)[0-9]*/) || ["89"])[0]);
+  if (!(
     // Firefox dosen't support 'backdrop-filter'
-    brsr[0] == 'Firefox' ||
-    // Browsers for Windows except Edge process 'backdrop-filter:blur()' incorrectly.
-    (OS[0] == 'Windows NT' && brsr[brsr.length - 1] != 'Edg')
-  )
-    document.body.className = 'low-perf';
+    (brsr[0] == 'Firefox') ||
+    // Browsers for Windows except Edge display 'backdrop-filter:blur()' incorrectly.
+    (OS[0] == 'Windows NT' && brsr[brsr.length - 1] != 'Edg') ||
+    // Chrome 76 & 77 for Android display 'backdrop-filter:blur()' incorrectly.
+    (crVer < 83)
+  ))
+    document.body.className = 'blur-enabled';
   
   // archive support
   if (typeof archive_info == 'object') {
