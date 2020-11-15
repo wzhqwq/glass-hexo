@@ -106,4 +106,17 @@ window.addEventListener('load', () => {
       }
     });
   })();
+
+  // code highlighter support
+  if (hljs) {
+    $('.code-block').each((i, el) => {
+      var codeEl = el.getElementsByTagName('code')[0];
+      var lineCount = (codeEl.innerHTML.match(/\n/g) || []).length + 1;
+      var lineNums = '';
+      for (let i = 1; i <= lineCount; i++)
+        lineNums += `${i}<br />`;
+      el.children[0].innerHTML = lineNums;
+      hljs.highlightBlock(codeEl);
+    });
+  }
 });

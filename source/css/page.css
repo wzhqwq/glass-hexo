@@ -383,6 +383,9 @@ heading {
   .post-time-block {
     margin-top: -30px;
   }
+  .content {
+    font-size: 14px;
+  }
 }
 @media screen and (max-width: 500px) {
   .nav-avatar {

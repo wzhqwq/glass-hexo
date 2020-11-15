@@ -1,0 +1,32 @@
+.content {
+  font-size: 18px;
+}
+.code-block-wrap {
+  border-radius: 15px;
+  background-color: var(--secondary-color);
+  max-height: 600px;
+  overflow-y: auto;
+  width: inherit;
+}
+.code-block {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.gults {
+  flex-shrink: 0;
+  font-family: monospace;
+  padding: 0.5em;
+  text-align: right;
+  user-select: none;
+  background-color: #495465;
+  color: #EEE;
+}
+.codes {
+  flex-grow: 1;
+}
+.codes > pre {
+  display: grid;
+  display: -ms-grid;
+  margin: 0;
+}
