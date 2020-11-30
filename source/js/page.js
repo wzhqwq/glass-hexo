@@ -2,7 +2,8 @@ window.addEventListener('load', () => {
   // Visual effect reduction on experimental funcitons
   var OS = navigator.userAgent.match(/Windows NT|Sun OS|Mac OS X|Linux|FreeBSD|iPhone|Android/);
   var brsr = navigator.userAgent.match(/Firefox|Opera|Edge|Chrome|Safari/);
-  var crVer = parseInt((navigator.userAgent.match(/(?<=Chrome\/)[0-9]*/) || ["89"])[0]);
+  // Webkit dosen't support prefix and suffix of Regular Expression
+  var crVer = parseInt((navigator.userAgent.match(/(?:Chrome\/)([0-9]*)/) || ["", "89"])[1]);
   if (!(
     // Firefox dosen't support 'backdrop-filter'
     (brsr[0] == 'Firefox') ||
@@ -108,7 +109,7 @@ window.addEventListener('load', () => {
   })();
 
   // code highlighter support
-  if (hljs) {
+  if (typeof hljs == 'object') {
     $('.code-block').each((i, el) => {
       var codeEl = el.getElementsByTagName('code')[0];
       var lineCount = (codeEl.innerHTML.match(/\n/g) || []).length + 1;
@@ -119,4 +120,79 @@ window.addEventListener('load', () => {
       hljs.highlightBlock(codeEl);
     });
   }
+
+  // side btns support
+  var toTop = document.getElementById('to-top-btn'),
+    widgetBtn = document.getElementById('widget-btn'),
+    widget = document.getElementById('widgets');
+  var toTopShown = false, widgetBtnShown = false, widgetShown = false;
+
+  $(toTop).click(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    toTop.className = 'icon-btn to-top';
+    setTimeout(() => {
+      toTop.style.display = 'none';
+      toTopShown = false;
+      toTop.className = 'icon-btn';
+    }, 400);
+  });
+  $(widgetBtn).click(() => {
+    if (widgetShown) {
+      widget.style.maxWidth = '0';
+      widgetShown = false;
+    }
+    else {
+      widget.style.maxWidth = '240px';
+      widgetShown = true;
+    }
+  });
+  if (document.body.clientWidth > 850) {
+    widgetBtn.style.display = 'none';
+    widgetBtnShown = false;
+  }
+  else {
+    widgetBtn.style.display = 'block';
+    widgetBtnShown = true;
+  }
+  window.addEventListener('resize', () => {
+    if (document.body.clientWidth > 850) {
+      if (widgetBtnShown) {
+        widgetBtn.style.display = 'none';
+        widgetBtnShown = false;
+      }
+      if (widgetShown) {
+        widget.style.maxWidth = '0';
+        widgetShown = false;
+      }
+    }
+    else if (!widgetBtnShown) {
+      widgetBtn.style.display = 'block';
+      widgetBtnShown = true;
+    }
+  });
+  setTimeout(() => {
+    if (document.documentElement.scrollTop == 0) {
+      toTop.style.display = 'none';
+      toTopShown = false;
+    }
+    else {
+      toTop.style.display = 'block';
+      toTopShown = true;
+    }
+  }, 500);
+  document.body.addEventListener('wheel', () => {
+    if (document.documentElement.scrollTop == 0) {
+      if (toTopShown) {
+        toTop.style.display = 'none';
+        toTopShown = false;
+      }
+    }
+    else if (!toTopShown) {
+      toTop.style.display = 'block';
+      toTopShown = true;
+    }
+  });
 });

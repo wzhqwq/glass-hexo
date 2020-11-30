@@ -26,6 +26,13 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
+button:focus {
+  outline: none;
+}
+:not(pre) > code {
+  color: #ff0098;
+  background-color: #ff00861c;
+}
 
 @media (prefers-color-scheme: dark) {
   body {
@@ -47,6 +54,10 @@ body {
     --vice-3: #57651e;
     --vice-4: #3a4a1a;
     --shadow-color: #05050511;
-    --hover: .9;
+    --hover: 1.2;
   }
+  :not(pre) > code {
+    color: #ff43b3;
+    background-color: #ff008654;
+  }  
 }

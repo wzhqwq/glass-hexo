@@ -30,3 +30,65 @@
   display: -ms-grid;
   margin: 0;
 }
+.codes code {
+  padding-right: 2em;
+}
+
+:not(pre) > code {
+  border-radius: 5px;
+  padding: 0 5px;
+  margin: 0 3px;
+}
+
+a,
+a:visited,
+a:active {
+  color: var(--main-1);
+  text-decoration: none;
+}
+.page a {
+  transition: border .3s ease-out, filter .3s ease-out;
+}
+.page a:hover,
+.page a:focus {
+  filter: brightness(1.2);
+}
+.page a:not(.headerlink) {
+  border-bottom: 1px var(--main-4) solid;
+  padding: 0 5px;
+}
+.page a:not(.headerlink):focus {
+  border-bottom: 2px var(--text-color) solid;
+}
+.page a:not(.headerlink):hover {
+  border-bottom-color: var(--main-1);
+}
+
+.hx-move {
+  position: relative;
+}
+.hx-anchor {
+  top: -60px;
+  position: absolute;
+}
+.headerlink::before {
+  content: "¶";
+  font-size: 24px;
+  margin-left: -16px;
+  margin-right: 4px;
+  padding: 2px 5px;
+  border-radius: 10px;
+}
+.headerlink:focus::before {
+  background-color: var(--main-1);
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 650px) {
+  :not(pre) > code {
+    padding: 0 2px;
+  }
+  .headerlink::before {
+    font-size: 18px;
+  }
+}

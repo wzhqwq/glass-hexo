@@ -1,0 +1,25 @@
+<div class="widget-outline">
+  <% (page.content.replace(/ class="headerlink"/g, '').match(/(?<=<h1>)[\s\S]*?(?<=<h1|$)/g) || []).forEach((val, i) => { %>
+    <div class="outline">
+      <div><%= i + 1 %></div>
+      <%- val.match(/<a href="[^"]*" title="[^"]*"><\/a>.*?(?=<\/h1>)/)[0].replace(/>(<\/a>)(.*)/, '>$2$1') %>
+    </div>
+    <div class="outline-align">
+    <% (val.match(/(?<=<h2>)[\s\S]*?(?<=<h2|$)/g) || []).forEach((val, j) => { %>
+      <div class="outline">
+        <div><%= i + 1 %>.<%= j + 1 %></div>
+        <%- val.match(/<a href="[^"]*" title="[^"]*"><\/a>.*?(?=<\/h2>)/)[0].replace(/>(<\/a>)(.*)/, '>$2$1') %>
+      </div>
+      <div class="outline-align">
+      <% (val.match(/(?<=<h3>)[\s\S]*?(?<=<h3|$)/g) || []).forEach((val, k) => { %>
+        <div class="outline">
+          <div><%= i + 1 %>.<%= j + 1 %>.<%= k + 1 %></div>
+          <%- val.match(/<a href="[^"]*" title="[^"]*"><\/a>.*?(?=<\/h3>)/)[0].replace(/>(<\/a>)(.*)/, '>$2$1') %>
+        </div>
+    
+      <% }); %>
+      </div>
+    <% }); %>
+    </div>
+  <% });%>
+</div>

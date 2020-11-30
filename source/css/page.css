@@ -39,6 +39,7 @@ header {
   flex-direction: row;
   overflow: auto;
   padding: 9px 0;
+  padding-right: 10px;
 }
 .nav-links a {
   display: block;
@@ -58,13 +59,16 @@ header {
   display: flex;
   flex-direction: row;
 }
+.nav-links a:focus {
+  box-shadow: 0 0 0 2px var(--text-2);
+}
 .nav-links a:hover {
   background-color: var(--secondary-color);
   box-shadow: 0 2px 4px var(--shadow-color);
 }
 .nav-links a.link-active {
   font-weight: normal;
-  background-color: var(--main-1);
+  background-color: var(--main-1) !important;
   color: var(--bg-color);
 }
 .nav-flex {
@@ -145,25 +149,37 @@ header {
 }
 
 .container {
-  width: 1000px;
-  margin: 0 auto;
   margin-bottom: 5px;
   display: flex;
   flex-direction: row;
-  margin-top: 105px;
+  padding: 0 10px;
+  padding-top: 105px;
+  justify-content: center;
 }
 .page {
   border-radius: 20px;
   box-shadow: 0 0 6px var(--shadow-color);
   background-color: var(--primary-color);
-  flex-grow: 1;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 800px;
 }
 .content {
   padding: 10px 20px;
 }
-.widgets {
-  min-width: 180px;
+.left-void {
+  width: 250px;
+  min-width: 200px;
+  flex-shrink: 1;
+  margin-right: 10px;
+}
+#widgets {
+  max-width: 250px;
+  min-width: 200px;
   margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
 }
 .page-image {
   width: 100%;
@@ -305,10 +321,77 @@ heading {
   -webkit-backdrop-filter: blur(10px);
 }
 
-@media screen and (max-width: 1100px) {
-  .nav,
-  .container {
-    width: 800px;
+.fixed-right {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: var(--secondary-color);
+  margin: 10px;
+  display: block;
+}
+.blur-enabled .icon-btn {
+  background-color: var(--secondary-color-t);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.icon-btn > svg {
+  fill: var(--text-2);
+}
+#to-top-btn.to-top > svg {
+  animation: to-top .3s ease-in-out;
+}
+@keyframes to-top {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  transition: filter .3s ease-out;
+}
+button:hover {
+  filter: brightness(var(--hover));
+}
+button:focus {
+  box-shadow: 0 0 0 1px var(--text-2);
+}
+a:focus,
+button:focus,
+input:focus {
+  outline: none;
+}
+@media screen and (max-width: 1240px) {
+  .left-void {
+    min-width: 0;
+  }
+  .left-void,
+  #widgets {
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 1040px) {
+  .nav {
+    width: auto;
+    margin: 0 25px;
+  }
+  .page {
+    flex-shrink: 1;
+  }
+  .left-void {
+    max-width: 0;
   }
   .title-box {
     width: 400px;
@@ -321,28 +404,39 @@ heading {
   }
 }
 @media screen and (max-width: 850px) {
-  .nav,
-  .container {
-    width: auto;
-    margin: 0 25px;
-  }
-  .container {
-    margin-top: 105px;
-  }
-  .widgets {
+  #widgets {
     position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 240px;
+    height: 100%;
+    background-color: var(--fixed-color);
+    padding-top: 80px;
+    box-sizing: border-box;
+    max-width: 0;
     min-width: 0;
-    transition: min-width .3s ease-out;
+    transition: max-width .3s ease-out;
+    overflow: hidden;
+  }
+  #widgets > div {
+    position: initial;
+    width: 220px;
+    margin: 10px;
+  }
+  .blur-enabled #widgets {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 }
 @media screen and (max-width: 650px) {
-  .nav,
   .container {
     width: 100%;
     margin: 0;
+    padding-top: 60px;
   }
-  .container {
-    margin-top: 60px;
+  .nav {
+    margin-left: 10px;
+    margin-right: 0;
   }
   .page {
     border-radius: 0;
@@ -357,8 +451,8 @@ heading {
   .not-post {
     width: 200px;
   }
-  .nav-avatar {
-    margin-right: 0;
+  .nav-links {
+    padding-right: 5px;
   }
   .nav-links > * {
     margin-left: 5px;
@@ -408,17 +502,19 @@ heading {
     margin-left: 0;
     margin-bottom: 5px;
   }
+  .nav > .nav-links a {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+  }
   .nav-select {
+    position: relative;
     width: var(--w);
   }
   #nav-collapse {
     display: block;
   }
-  .nav-select {
-    position: relative;
-  }
   .container {
-    margin-top: 50px;
+    padding-top: 50px;
   }
   heading {
     font-size: 28px;
