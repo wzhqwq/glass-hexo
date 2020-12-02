@@ -23,3 +23,9 @@ accounts:
   weibo:
   lofter:
   gitee:
+
+# Widgets
+useLive2d: true
+live2d:
+  #model: /model/Kobayaxi/Kobayaxi.model.json
+  model: /model/senko/senko.model3.json

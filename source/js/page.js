@@ -84,7 +84,7 @@ window.addEventListener('load', () => {
       coll.className = open ? '' : 'active';
       open = !open;
     });
-    const close = () => {
+    const close_nav = () => {
       if (open) {
         open = false;
         links.style.height = '';
@@ -93,11 +93,12 @@ window.addEventListener('load', () => {
     }; // 关掉，关掉，一定要关掉！
     $(document.body).click(e => {
       if (e.target.id == 'year-select' || e.target.id == 'month-select') return;
-      close();
+      close_nav();
+      close_widget();
     });
     window.addEventListener('resize', () => {
       if (document.body.clientWidth > 500) {
-        close();
+        close_nav();
         if (post_image_not_loaded) {
           post_image_not_loaded = false;
           Array.prototype.forEach.call(document.getElementsByClassName('post-image'), el => {
@@ -139,11 +140,16 @@ window.addEventListener('load', () => {
       toTop.className = 'icon-btn';
     }, 400);
   });
-  $(widgetBtn).click(() => {
+  const close_widget = () => {
     if (widgetShown) {
-      widget.style.maxWidth = '0';
+      widget.style.maxWidth = '';
       widgetShown = false;
     }
+  }
+  $(widgetBtn).click(e => {
+    e.stopPropagation();
+    if (widgetShown)
+      close_widget();
     else {
       widget.style.maxWidth = '240px';
       widgetShown = true;
@@ -163,10 +169,8 @@ window.addEventListener('load', () => {
         widgetBtn.style.display = 'none';
         widgetBtnShown = false;
       }
-      if (widgetShown) {
-        widget.style.maxWidth = '0';
-        widgetShown = false;
-      }
+      if (widgetShown)
+        close_widget();
     }
     else if (!widgetBtnShown) {
       widgetBtn.style.display = 'block';

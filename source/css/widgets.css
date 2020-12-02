@@ -1,6 +1,7 @@
 .widget-outline {
   position: sticky;
   top: 70px;
+  overflow: auto;
 }
 .outline {
   display: flex;
@@ -39,4 +40,58 @@
 }
 .outline-align:focus-within {
   border-left-color: var(--main-1);
+}
+
+.widget-live2d {
+  position: fixed;
+  bottom: 10px;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+
+}
+#live2d-not-loaded {
+  padding-top: 20px;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  height: 180px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#live2d-not-loaded > button {
+
+}
+#live2d-not-loaded > h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+#live2d {
+  position: absolute;
+  display: none;
+  margin-left: -50px;
+  margin-top: -50px;
+}
+#live2d-loading {
+  display: none;
+  width: 50px;
+  height: 50px;
+  margin-top: -62px;
+  border-radius: 50%;
+  border: 2px var(--text-2) solid;
+  border-top-color: transparent;
+}
+#live2d-loading.show {
+  display: block;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
