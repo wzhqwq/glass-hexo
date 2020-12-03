@@ -21,11 +21,11 @@
   %> 
   <div class="container">
     <div class="left-void"></div>
-    <div class="page">
+    <div class="page<% if (page.title) { %> post<% } %>">
       <% if (image) { %>
         <img src="<%= image %>" rel="page image" class="page-image">
       <% } %>
-      <div class="title-box<% if (!page.title) { %> not-post<% } %>">
+      <div class="title-box">
       <heading><%= title %></heading>
         <% if (page.date) { %>
         <div class="page-dates">

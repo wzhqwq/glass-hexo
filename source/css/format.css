@@ -46,21 +46,21 @@ a:active {
   color: var(--main-1);
   text-decoration: none;
 }
-.page a {
+.post a {
   transition: border .3s ease-out, filter .3s ease-out;
 }
-.page a:hover,
-.page a:focus {
+.post a:hover,
+.post a:focus {
   filter: brightness(1.2);
 }
-.page a:not(.headerlink) {
+.post a:not(.headerlink) {
   border-bottom: 1px var(--main-4) solid;
   padding: 0 5px;
 }
-.page a:not(.headerlink):focus {
+.post a:not(.headerlink):focus {
   border-bottom: 2px var(--text-color) solid;
 }
-.page a:not(.headerlink):hover {
+.post a:not(.headerlink):hover {
   border-bottom-color: var(--main-1);
 }
 
@@ -72,7 +72,7 @@ a:active {
   position: absolute;
 }
 .headerlink::before {
-  content: "¶";
+  content: "§";
   font-size: 24px;
   margin-left: -16px;
   margin-right: 4px;

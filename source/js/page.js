@@ -144,6 +144,7 @@ window.addEventListener('load', () => {
     if (widgetShown) {
       widget.style.maxWidth = '';
       widgetShown = false;
+      window.pauseLive2d?.();
     }
   }
   $(widgetBtn).click(e => {
@@ -153,6 +154,7 @@ window.addEventListener('load', () => {
     else {
       widget.style.maxWidth = '240px';
       widgetShown = true;
+      window.resumeLive2d?.();
     }
   });
   if (document.body.clientWidth > 850) {

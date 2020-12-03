@@ -1,13 +1,6 @@
 window.addEventListener('load', () => {
-  var oriHeight = document.documentElement.clientHeight;
-  window.addEventListener('resize', function () {
-    if (document.documentElement.clientHeight == oriHeight) return;
-    oriHeight = document.documentElement.clientHeight;
-  });
-});
-
-window.addEventListener('load', () => {
-  $('#load-live2d-btn').click(async function () {
+  $('#load-live2d-btn').click(async function (e) {
+    e.stopPropagation();
     $('#load-live2d-btn').blur();
     $('#live2d-loading')[0].className = 'show';
     // await $.getScript('/js/live2d.js').promise;
