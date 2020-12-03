@@ -71,6 +71,7 @@
   display: none;
   margin-left: -50px;
   margin-top: -50px;
+  cursor: pointer;
 }
 #live2d-loading {
   display: none;
@@ -84,6 +85,7 @@
 #live2d-loading.show {
   display: block;
   animation: spin 1s linear infinite;
+  cursor: progress;
 }
 @keyframes spin {
   from {
