@@ -1,11 +1,11 @@
 <header>
   <div class="nav">
-    <div class="nav-avatar">
+    <div class="nav-avatar" title="网站标志性图标">
       <% if (theme.avatar) { %>
         <img src="<%= theme.avatar %>"/>
       <% } %>
     </div>
-    <button id="nav-collapse">
+    <button id="nav-collapse" title="展开展开导航栏">
       <div style="top: 10px;"></div>
       <div style="top: 19px;"></div>
       <div style="top: 28px;"></div>
@@ -13,17 +13,17 @@
     <div class="nav-links" id="navbar-links">
     <%for (let link_name in theme.menu) { %>
       <div>
-        <a href="<%- url_for(theme.menu[link_name].url) %>" class="<%= theme.menu[link_name].url == base ? 'link-active' : ''%>"><%= link_name %></a>
+        <a href="<%- url_for(theme.menu[link_name].url) %>" class="<%= theme.menu[link_name].url == base ? 'link-active' : ''%>" title="进入<%= link_name %>"><%= link_name %></a>
       <%if (theme.menu[link_name].url == '/archives/' && page.archive) {
           var archive_info = 'var archive_info = { archive: true, ';
           if (page.year) {
             archive_info += `year: ${page.year}`;%>
         <div class="nav-flex">
           <div class="nav-select" style="--w: <%= page.month ? 118 : 64 %>px">
-            <select id="year-select"></select>
+            <select id="year-select" title="选择存档年份"></select>
           <%if (page.month) {
               archive_info += `, month: ${page.month}`;%>
-            <select id="month-select"></select>
+            <select id="month-select" title="选择存档月份"></select>
           <%} %>
           </div>
         </div>

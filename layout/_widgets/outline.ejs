@@ -1,4 +1,4 @@
-<div class="widget-outline">
+<div class="widget-outline" title="文章目录">
   <%
     var raw = page.raw.split('\n').map(line => line.trimStart());
     var min = 0, now = [];
@@ -31,7 +31,7 @@
   %>
   <div class="outline">
     <div><%= now.join('.') %></div>
-    <a href="#<%= value %>" title="<%= value %>"><%= value %></a>
+    <a href="#<%= value %>" title="进入章节：<%= value %>"><%= value %></a>
   </div>
   <%
     }

@@ -1,3 +1,6 @@
+:root {
+  font-size: 16px;
+}
 header {
   background-color: var(--bg-color);
   position: fixed;

@@ -49,16 +49,16 @@ window.addEventListener('load', () => {
           for (let m in base) {
             let month = parseInt(m);
             if (month < 10) m = '0' + m;
-            inner += `<a href="${base_url}${archive_info.year}/${m}/">${month}月</a>`;
+            inner += `<a href="${base_url}${archive_info.year}/${m}/" title="点击以查看博主${archive_info.year}年${month}月的博客">${month}月</a>`;
           }
           inner_nav.innerHTML = inner;
         }
       }
       else {
-        inner = `<a href="${base_url}" class="link-active">全部</a>`;
+        inner = `<a href="${base_url}" class="link-active" title="目前显示了全部博客，在右侧选择具体年份">全部</a>`;
         for (let y in data.ava) {
           let year = parseInt(y);
-          inner += `<a href="${base_url}${year + data.start}/">${year + data.start}年</a>`;
+          inner += `<a href="${base_url}${year + data.start}/" title="点击以查看博主${year + data.start}年的博客">${year + data.start}年</a>`;
         }
         inner_nav.innerHTML = inner;
       }
@@ -82,6 +82,7 @@ window.addEventListener('load', () => {
       e.stopPropagation();
       links.style.height = open ? '' : `${height}px`;
       coll.className = open ? '' : 'active';
+      coll.title = open ? '点击展开导航栏' : '点击收起导航栏';
       open = !open;
     });
     const close_nav = () => {
@@ -89,6 +90,7 @@ window.addEventListener('load', () => {
         open = false;
         links.style.height = '';
         coll.className = '';
+        coll.title = '点击展开导航栏';
       }
     }; // 关掉，关掉，一定要关掉！
     $(document.body).click(e => {
@@ -145,6 +147,7 @@ window.addEventListener('load', () => {
       widget.style.maxWidth = '';
       widgetShown = false;
       window.pauseLive2d?.();
+      widgetBtn.title = '点击以展开组件菜单，包含了文章目录等组件';
     }
   }
   $(widgetBtn).click(e => {
@@ -155,6 +158,7 @@ window.addEventListener('load', () => {
       widget.style.maxWidth = '240px';
       widgetShown = true;
       window.resumeLive2d?.();
+      widgetBtn.title = '点击以收起组件菜单';
     }
   });
   if (document.body.clientWidth > 850) {
@@ -189,7 +193,7 @@ window.addEventListener('load', () => {
       toTopShown = true;
     }
   }, 500);
-  document.body.addEventListener('wheel', () => {
+  document.body.addEventListener('scrool', () => {
     if (document.documentElement.scrollTop == 0) {
       if (toTopShown) {
         toTop.style.display = 'none';
