@@ -1,0 +1,15 @@
+<div class="footer">
+  <% if (theme.beianCode && theme.ICPCode) { %>
+    <div class="beian-line">
+      <div>
+        ICP备案号：
+        <a href="https://beian.miit.gov.cn/"><%= theme.ICPCode %></a>
+      </div>
+      <div>
+        <img src="/beian.png">
+        公安备案号：
+        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%= theme.beianCode %>"><%= theme.beianCode %></span>
+      </div>
+    </div>
+  <% } %>
+</div>

@@ -4,9 +4,12 @@
 
 body {
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   --bg-color: #FEFEFE;
   --text-color: #111;
-  --text-2: #333;
+  --text-2: #444;
   --primary-color: #F5F5F5;
   --secondary-color: #EAEAEA;
   --secondary-color-t: #EAEAEA88;

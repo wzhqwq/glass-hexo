@@ -18,6 +18,8 @@
       title = `${page.year}年`;
       if (page.month) title += `${page.month}月`;
     }
+    if (page.tag)
+      title = page.tag.name;
   %> 
   <div class="container">
     <div class="left-void"></div>

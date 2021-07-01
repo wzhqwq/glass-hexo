@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
     coreLoader.src = '/js/live2d.core.js';
     document.head.appendChild(coreLoader);
     const next = () => {
-      if (typeof loadLive2d == 'undefined') {
+      if (typeof loadLive2d == 'undefined' || typeof Live2DCubismCore == 'undefined') {
         setTimeout(next, 500);
         return;
       }

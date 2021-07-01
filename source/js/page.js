@@ -193,7 +193,7 @@ window.addEventListener('load', () => {
       toTopShown = true;
     }
   }, 500);
-  document.body.addEventListener('scrool', () => {
+  document.body.addEventListener('scroll', () => {
     if (document.documentElement.scrollTop == 0) {
       if (toTopShown) {
         toTop.style.display = 'none';

@@ -7,6 +7,9 @@ menu:
   博客存档:
     url: /archives/
     title: 所有博客
+  标签:
+    url: /tags/
+    title: 所有标签
 avatar: /imgs/avatar-s.png
 
 archives:
@@ -29,3 +32,7 @@ useLive2d: true
 live2d:
   #model: /model/Kobayaxi/Kobayaxi.model.json
   model: /model/senko/senko.model3.json
+
+# Bei an
+beianCode: 37011202001305
+ICPCode: 鲁ICP备2021018460号-1
