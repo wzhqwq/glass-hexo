@@ -128,7 +128,7 @@ window.addEventListener('load', () => {
   var toTop = document.getElementById('to-top-btn'),
     widgetBtn = document.getElementById('widget-btn'),
     widget = document.getElementById('widgets');
-  var toTopShown = false, widgetBtnShown = false, widgetShown = false;
+  var toTopShown = true, widgetBtnShown = true, widgetShown = false;
 
   $(toTop).click(() => {
     window.scrollTo({
@@ -161,15 +161,7 @@ window.addEventListener('load', () => {
       widgetBtn.title = '点击以收起组件菜单';
     }
   });
-  if (document.body.clientWidth > 850) {
-    widgetBtn.style.display = 'none';
-    widgetBtnShown = false;
-  }
-  else {
-    widgetBtn.style.display = 'block';
-    widgetBtnShown = true;
-  }
-  window.addEventListener('resize', () => {
+  const updateWidget = () => {
     if (document.body.clientWidth > 850) {
       if (widgetBtnShown) {
         widgetBtn.style.display = 'none';
@@ -182,18 +174,11 @@ window.addEventListener('load', () => {
       widgetBtn.style.display = 'block';
       widgetBtnShown = true;
     }
-  });
-  setTimeout(() => {
-    if (document.documentElement.scrollTop == 0) {
-      toTop.style.display = 'none';
-      toTopShown = false;
-    }
-    else {
-      toTop.style.display = 'block';
-      toTopShown = true;
-    }
-  }, 500);
-  document.body.addEventListener('scroll', () => {
+  };
+  updateWidget();
+  window.addEventListener('resize', updateWidget);
+
+  const updateToTop = () => {
     if (document.documentElement.scrollTop == 0) {
       if (toTopShown) {
         toTop.style.display = 'none';
@@ -204,5 +189,8 @@ window.addEventListener('load', () => {
       toTop.style.display = 'block';
       toTopShown = true;
     }
-  });
+  };
+  setTimeout(updateToTop, 500);
+  document.body.addEventListener('scroll', updateToTop);
+  document.body.addEventListener('wheel', updateToTop);
 });

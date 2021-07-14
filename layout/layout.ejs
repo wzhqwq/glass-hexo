@@ -25,7 +25,9 @@
     <div class="left-void"></div>
     <div class="page<% if (page.title) { %> post<% } %>">
       <% if (image) { %>
-        <img src="<%= image %>" rel="page image" class="page-image">
+        <div class="page-image-wrap">
+          <img src="<%= image %>" rel="page image" class="page-image">
+        </div>
       <% } %>
       <div class="title-box">
       <heading title="<% if (page.title) { %>您所在的文章标题为：<% } else { %>您所在的页面为：<% } %><%= title %>"><%= title %></heading>
